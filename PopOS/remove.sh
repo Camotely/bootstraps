@@ -2,7 +2,6 @@
 
 progs=(
     libreoffice
-    firefox
     geary
     gucharmap
     simple-scan

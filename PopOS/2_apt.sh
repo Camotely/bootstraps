@@ -10,7 +10,6 @@ progs=(
 	tlp
 	tlp-rdw
 	python3-pip
-	chromium
 	slack-desktop
 	discord
 )

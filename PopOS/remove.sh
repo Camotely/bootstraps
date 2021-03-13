@@ -15,7 +15,8 @@ progs=(
     gnome-font-viewer
     seahorse
     apport
-
+    yelp
+    com.github.donadigo.eddy
 )	
 
 for i in ${progs[@]}; do

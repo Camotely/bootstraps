@@ -2,7 +2,6 @@
 
 USER_NAME=$(ls /home)
 USER_HOME="/home/$USER_NAME"
-code_settings="$USER_HOME/.config/Code/User/settings.json"
 
 # Download and install Microsoft's package signing key
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -13,7 +12,6 @@ echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] h
 
 # Install VSCode
 apt-get update
-#apt-get install --no-install-recommends -y \
 apt-get install -y \
 	code \
 	python3-pip
@@ -31,20 +29,3 @@ su "$USER_NAME" -c "code --install-extension ms-python.python"
 su "$USER_NAME" -c "code --install-extension timonwong.shellcheck"
 su "$USER_NAME" -c "code --install-extension yzhang.markdown-all-in-one"
 su "$USER_NAME" -c "code --install-extension vscodevim.vim"
-
-# Settings
-su "$USER_NAME" -c "touch $code_settings"
-su "$USER_NAME" -c 'echo "{
-    \"telemetry.enableTelemetry\": false,
-    \"telemetry.enableCrashReporter\": false,
-    \"file.autoSave\": \"afterDelay\",
-    \"python.linting.pylintEnabled\": true,
-    \"python.linting.enabled\": true
-}
-"' > "$code_settings"
-
-# Jump between terminal and editor with CTRL+'
-#// Toggle between terminal and editor focus
-#{ "key": "ctrl+'", "command": "workbench.action.terminal.focus"},
-#{ "key": "ctrl+'", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
-

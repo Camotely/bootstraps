@@ -10,5 +10,6 @@ apt-get install -y vim \
         tlp-rdw \
 	python3-pip \
         slack-desktop \
-        discord
+        discord \
+	nmap
 
